@@ -23,9 +23,11 @@ vim.opt.colorcolumn = '80'
 
 vim.opt.cmdheight = 2
 
+-- Git integration, may switch to gitsigns or something else
 local neogit = require('neogit')
 neogit.setup {}
 
+-- Fuzzy file search and ripgrep, could switch to fzf
 local telescope = require('telescope')
 telescope.setup {
   defaults = {
@@ -33,6 +35,27 @@ telescope.setup {
   }
 }
 
+-- neorg Org mode for neovim
+require('neorg').setup {
+    load = {
+      ["core.defaults"] = {},
+      ["core.norg.dirman"] = {
+        config = {
+            workspaces = {
+                work = "~/notes/work",
+                home = "~/notes/home",
+            }
+        }
+      },
+      ["core.norg.concealer"] = {
+        config = { -- Note that this table is optional and doesn't need to be provided
+          -- Configuration here
+        }
+      }
+    }
+}
+
+-- Syntax highlighting
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "c", "lua", "rust", "javascript", "typescript" },
@@ -72,6 +95,7 @@ vim.cmd([[
   cmap xx Explore
   colorscheme gruvbox
   let g:gruvbox_transparent_bg=1
+  let g:gruvbox_contrast_dark="soft"
   let g:neoformat_try_node_exe=1
   autocmd BufWritePre *.mjs Neoformat
   autocmd BufWritePre *.jsx Neoformat
