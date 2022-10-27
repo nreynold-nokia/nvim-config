@@ -23,16 +23,13 @@ vim.opt.colorcolumn = '80'
 
 vim.opt.cmdheight = 2
 
-
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[
   let mapleader = " "
   cmap back b#
   cmap gg Neogit
   cmap xx Explore
-  colorscheme gruvbox
-  let g:gruvbox_transparent_bg=1
-  let g:gruvbox_contrast_dark="soft"
+  colorscheme tokyonight
   let g:neoformat_try_node_exe=1
   autocmd BufWritePre *.mjs Neoformat
   autocmd BufWritePre *.jsx Neoformat
@@ -43,3 +40,9 @@ vim.cmd([[
   nnoremap fg :Telescope live_grep <cr>
   nnoremap <Leader>w <C-w><C-w>
 ]])
+
+
+-- put this in vim.cmd to get gruvbox back
+--  colorscheme gruvbox
+--  let g:gruvbox_transparent_bg=1
+--  let g:gruvbox_contrast_dark="soft"

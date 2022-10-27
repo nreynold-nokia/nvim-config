@@ -5,9 +5,9 @@ function M.setup()
 local telescope = require('telescope')
   telescope.setup {
     defaults = {
-      file_ignore_patterns = {"node_modules", "dist", "coverage"}
+      file_ignore_patterns = {"node_modules", "dist", "coverage"},
+		  path_display={shorten=3} 
     }
   }
 end
-
 return M

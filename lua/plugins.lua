@@ -53,8 +53,14 @@ function M.setup()
     }
 
     -- Gruvbox Theme
-    use 'ellisonleao/gruvbox.nvim'
+    -- use 'ellisonleao/gruvbox.nvim'
 
+    -- Dracula Theme
+    -- use 'Mofiqul/dracula.nvim'
+    
+    -- TokyoNight Theme
+    use 'folke/tokyonight.nvim'
+    
     -- Autocomplete
     use {
       'hrsh7th/nvim-cmp',
@@ -103,7 +109,7 @@ function M.setup()
       tag = '0.1.0',
       requires = {{'nvim-lua/plenary.nvim'}},
       config = function()
-        require("config.neorg").setup()
+        require("config.telescope").setup()
       end
     }
 
