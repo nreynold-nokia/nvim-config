@@ -9,5 +9,6 @@ local telescope = require('telescope')
 		  path_display={shorten=3} 
     }
   }
+
 end
 return M

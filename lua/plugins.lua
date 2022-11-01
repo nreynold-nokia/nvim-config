@@ -112,7 +112,7 @@ function M.setup()
         require("config.telescope").setup()
       end
     }
-
+    -- Vim Status Line
     use {
       'nvim-lualine/lualine.nvim',
       requires = {'kyazdani42/nvim-web-devicons',
@@ -123,12 +123,34 @@ function M.setup()
       end
     }
 
+    -- Debugging
     use 'mfussenegger/nvim-dap'
 
     -- Formatting
     use 'sbdchd/neoformat'
 
-    -- Git
+    -- Harpoon
+    use {
+      "ThePrimeagen/harpoon",
+      keys = { [[<leader>j]] },
+      module = { "harpoon", "harpoon.cmd-ui", "harpoon.mark", "harpoon.ui", "harpoon.term" },
+      wants = { "telescope.nvim" },
+      config = function()
+        require("config.harpoon").setup()
+      end,
+    }
+
+     -- WhichKey
+    use {
+      "folke/which-key.nvim",
+      event = "VimEnter",
+      config = function()
+        require("config.whichkey").setup()
+      end,
+      disable = false,
+    }   
+
+    -- NeoGit
     use {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
