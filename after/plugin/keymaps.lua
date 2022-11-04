@@ -37,3 +37,10 @@ keymap("n", "<Left>", ":vertical resize +1<CR>", default_opts)
 keymap("n", "<Right>", ":vertical resize -1<CR>", default_opts)
 keymap("n", "<Up>", ":resize -1<CR>", default_opts)
 keymap("n", "<Down>", ":resize +1<CR>", default_opts)
+
+--keymap("n", "hello", function()
+-- return print "hello nvim"
+--end, default_opts)
+--vim.keymap.set("n", "hello", function()
+--  print "hello world"
+--end, { desc = "my hello world" })

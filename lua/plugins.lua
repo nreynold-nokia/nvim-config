@@ -42,6 +42,8 @@ function M.setup()
 
     -- LSP
     use 'neovim/nvim-lspconfig'
+    -- Tmux nav
+    use 'christoomey/vim-tmux-navigator'
 
     -- Treesitter
     use {

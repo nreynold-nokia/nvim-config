@@ -105,14 +105,15 @@ local function normal_keymap()
       a = { "<Cmd>lua require('harpoon.mark').add_file()<Cr>", "Add File" },
       m = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<Cr>", "UI Menu" },
       c = { "<Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<Cr>", "Command Menu" },
+      t = { "<Cmd>lua require('harpoon.tmux').sendCommand('%3','ls')<Cr>", "Send ls"},
     },
     ["0"] = { "<Cmd>2ToggleTerm<Cr>", "ToggleTerm 2" },
     ["1"] = { "<Cmd>lua require('harpoon.ui').nav_file(1) <Cr>", "File 1" },
     ["2"] = { "<Cmd>lua require('harpoon.ui').nav_file(2) <Cr>", "File 2" },
-    ["3"] = { "<Cmd>lua require('harpoon.term').gotoTerminal(1)<Cr>", "Terminal 1" },
-    ["4"] = { "<Cmd>lua require('harpoon.term').gotoTerminal(2)<Cr>", "Terminal 2" },
-    ["5"] = { "<Cmd>lua require('harpoon.term').sendCommand(1,1)<Cr>", "Command 1" },
-    ["6"] = { "<Cmd>lua require('harpoon.term').sendCommand(1,2)<Cr>", "Command 2" },
+    ["3"] = { "<Cmd>lua require('harpoon.tmux').gotoTerminal(1)<Cr>", "Terminal 1" },
+    ["4"] = { "<Cmd>lua require('harpoon.tmux').gotoTerminal(2)<Cr>", "Terminal 2" },
+    ["5"] = { "<Cmd>lua require('harpoon.tmux').sendCommand(1,1)<Cr>", "Command 1" },
+    ["6"] = { "<Cmd>lua require('harpoon.tmux').sendCommand(1,2)<Cr>", "Command 2" },
 
 --    t = {
 --      name = "Test",
@@ -332,7 +333,8 @@ local function code_keymap()
         u = { "<cmd>TypescriptRemoveUnused<cr>", "Remove Unused" },
         R = { "<cmd>lua require('config.test').javascript_runner()<cr>", "Choose Test Runner" },
         s = { "<cmd>2TermExec cmd='yarn start'<cr>", "Yarn Start" },
-        t = { "<cmd>2TermExec cmd='yarn test'<cr>", "Yarn Test" },
+     --   t = { "<cmd>2TermExec cmd='yarn test'<cr>", "Yarn Test" },
+        t = {function() print(fname) end, "Test File"}
       }
     elseif ft == "java" then
       keymap_c = {
